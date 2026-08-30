@@ -2,6 +2,9 @@
   "name": "avalon-online",
   "private": true,
   "version": "2.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "workspaces": [
     "packages/shared",
     "packages/server",
@@ -11,8 +14,8 @@
     "dev": "npm run dev:server & npm run dev:client",
     "dev:server": "npm -w packages/server run dev",
     "dev:client": "npm -w packages/client run dev",
-    "build": "npm -w packages/shared run build && npm -w packages/client run build && npm -w packages/server run build",
+    "build": "npm run build --workspaces",
     "start": "npm -w packages/server run start",
-    "typecheck": "npm -w packages/shared run typecheck && npm -w packages/server run typecheck && npm -w packages/client run typecheck"
+    "typecheck": "npm run typecheck --workspaces"
   }
 }
