@@ -5,7 +5,7 @@ import {
   QuestCard,
   RoleSetupOptions,
   Vote,
-} from "./types";
+} from "./types.js";
 import {
   assignRoles,
   isEvil,
@@ -13,7 +13,7 @@ import {
   questSpecsFor,
   questTally,
   shuffle,
-} from "./rules";
+} from "./rules.js";
 
 // ─── Actions ───────────────────────────────────────────────────────────────────
 

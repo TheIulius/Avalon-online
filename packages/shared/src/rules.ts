@@ -1,4 +1,4 @@
-import { GameState, Player, QuestSpec, RoleId, RoleSetupOptions } from "./types";
+import { GameState, Player, QuestSpec, RoleId, RoleSetupOptions } from "./types.js";
 
 /** Total Good vs Evil split by player count, per the standard Avalon rulebook. */
 export function alignmentCounts(playerCount: number): { good: number; evil: number } {
