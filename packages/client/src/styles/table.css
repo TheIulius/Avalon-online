@@ -137,3 +137,51 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   z-index: 10;
 }
+
+/* ---------- MOBILE RESPONSIVENESS ---------- */
+@media (max-width: 768px) {
+  .table-wrapper {
+    aspect-ratio: auto;
+    max-height: none;
+    height: auto;
+    margin: 10px 0;
+  }
+  
+  .table-surface {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .table-felt {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 20px 10px;
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .table-center-area {
+    width: 100%;
+  }
+
+  .seat-wrapper {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 0 0 calc(33.333% - 15px); /* 3 columns for better fit if many players, or let flex handle it */
+    display: flex;
+    justify-content: center;
+  }
+
+  .seat-info {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}

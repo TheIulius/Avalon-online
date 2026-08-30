@@ -72,3 +72,26 @@
   z-index: -1;
   transition: transform 0.1s ease-out, opacity 0.1s ease-out;
 }
+
+/* ---------- MOBILE RESPONSIVENESS ---------- */
+@media (max-width: 768px) {
+  .video-tile-container.small {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .video-tile-container.large {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .avatar-circle {
+    font-size: 1.2rem;
+  }
+  
+  .video-overlay {
+    top: 2px;
+    right: 2px;
+    padding: 2px;
+  }
+}

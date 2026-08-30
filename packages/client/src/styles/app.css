@@ -907,3 +907,13 @@
     padding: 18px 10px;
   }
 }
+
+/* ---------- MOBILE RESPONSIVENESS (APP) ---------- */
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 10px 5px;
+  }
+  .stage {
+    gap: 10px;
+  }
+}
