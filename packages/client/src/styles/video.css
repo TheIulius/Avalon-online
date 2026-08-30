@@ -1,0 +1,5 @@
+.video-tile {
+  border: 2px solid var(--video-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}

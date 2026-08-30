@@ -1,0 +1,94 @@
+:root {
+  --bg-deep: #0d1220;
+  --bg-panel: #151c30;
+  --bg-panel-raised: #1b2439;
+  --line: #2c3654;
+  --parchment: #ece2c8;
+  --parchment-dim: #cabd98;
+  --ink: #e9e4d6;
+  --ink-dim: #a3a8bd;
+  --gold: #c8a24d;
+  --gold-bright: #e4c069;
+  --crimson: #9a2f3a;
+  --crimson-bright: #c94550;
+  --emerald: #2f7a5f;
+  --emerald-bright: #47a37e;
+
+  --font-display: "Cinzel", "Georgia", serif;
+  --font-flavor: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: radial-gradient(ellipse at 50% -10%, #1c2740 0%, var(--bg-deep) 55%, #070a12 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--parchment);
+}
+
+p {
+  margin: 0;
+}
+
+/* NEW TOKENS FOR TABLE */
+:root {
+  --felt: #1a4d2e;
+  --felt-dark: #0f3320;
+  --felt-light: #257a45;
+  --wood: #5c3a1e;
+  --wood-dark: #3d2512;
+  --wood-light: #7a5030;
+  --card-back: #1b2439;
+  --card-border: #c8a24d;
+  --video-border: #2c3654;
+  --speaking-glow: rgba(200, 162, 77, 0.6);
+  --seat-selected: rgba(200, 162, 77, 0.3);
+}
