@@ -33,10 +33,15 @@ export class RoomManager {
 
   createRoom(socketId: string, playerId: string, playerName: string): { code: string, sessionToken: string } {
     const code = this.generateCode();
+    const { sessionToken } = this.createRoomWithCode(code, socketId, playerId, playerName);
+    return { code, sessionToken };
+  }
+
+  createRoomWithCode(code: string, socketId: string, playerId: string, playerName: string): { sessionToken: string } {
     const room = new GameRoom(code, this.io);
     this.rooms.set(code, room);
     const sessionToken = room.addPlayer(playerId, playerName, socketId);
-    return { code, sessionToken };
+    return { sessionToken };
   }
 
   joinRoom(code: string, socketId: string, playerId: string, playerName: string): { sessionToken: string } | null {

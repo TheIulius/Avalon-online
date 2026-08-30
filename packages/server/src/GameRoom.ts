@@ -233,35 +233,39 @@ export class GameRoom {
   }
 
   broadcastState() {
-    const publicState = buildPublicState(this.state);
+    setImmediate(() => {
+      const publicState = buildPublicState(this.state);
 
-    for (const [playerId, connection] of this.players.entries()) {
-      if (connection.socketId && connection.connected) {
-        const privateState = buildPrivateState(this.state, playerId);
-        this.io.to(connection.socketId).emit("game:state", {
-          publicState,
-          privateState,
-        });
+      for (const [playerId, connection] of this.players.entries()) {
+        if (connection.socketId && connection.connected) {
+          const privateState = buildPrivateState(this.state, playerId);
+          this.io.to(connection.socketId).emit("game:state", {
+            publicState,
+            privateState,
+          });
+        }
       }
-    }
+    });
   }
 
   broadcastRoomState() {
-    const players: PublicPlayer[] = this.state.players.map((p: any) => ({
-      id: p.id,
-      name: p.name,
-      connected: p.connected,
-      role: null,
-      hasVoted: false,
-      hasPlayedQuest: false,
-    }));
+    setImmediate(() => {
+      const players: PublicPlayer[] = this.state.players.map((p: any) => ({
+        id: p.id,
+        name: p.name,
+        connected: p.connected,
+        role: null,
+        hasVoted: false,
+        hasPlayedQuest: false,
+      }));
 
-    this.io.to(this.code).emit("room:state", {
-      roomCode: this.code,
-      hostId: this.hostId,
-      players,
-      roleOptions: this.state.roleOptions,
-      gameStarted: this.state.phase !== "LOBBY",
+      this.io.to(this.code).emit("room:state", {
+        roomCode: this.code,
+        hostId: this.hostId,
+        players,
+        roleOptions: this.state.roleOptions,
+        gameStarted: this.state.phase !== "LOBBY",
+      });
     });
   }
 

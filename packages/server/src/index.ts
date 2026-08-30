@@ -30,12 +30,18 @@ io.on("connection", (socket) => {
 
   socket.on("room:create", (data: { playerName: string }, callback: Function) => {
     const playerId = uuidv4();
-    const { code, sessionToken } = roomManager.createRoom(
+    
+    // We must generate the code first so the socket can join before we add them to the room logic
+    const code = roomManager.generateCode();
+    socket.join(code);
+
+    const { sessionToken } = roomManager.createRoomWithCode(
+      code,
       socket.id,
       playerId,
       data.playerName
     );
-    socket.join(code);
+
     console.log(`[Room created] ${code} by ${data.playerName}`);
     callback({
       success: true,
