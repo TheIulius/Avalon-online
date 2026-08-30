@@ -1,9 +1,139 @@
-.table-surface {
-  margin: 20px 0;
-  box-shadow: inset 0 0 50px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.4);
-}
-.table-center {
+.game-table-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.top-hud, .bottom-hud {
+  z-index: 30;
+}
+
+.table-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 70vh;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.table-felt {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, #2a6a45 0%, #173f27 100%);
+  border-radius: 50%;
+  border: 14px solid #4a2c11;
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.8), 0 20px 40px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-center-area {
+  z-index: 10;
+  width: 65%;
   text-align: center;
+  color: white;
+}
+
+.seat-wrapper {
+  position: absolute;
+  z-index: 20;
+}
+
+.player-seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.player-seat.selectable {
+  cursor: pointer;
+}
+.player-seat.selectable:hover {
+  transform: scale(1.1);
+}
+
+.seat-info {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.seat-name {
+  font-weight: 600;
+}
+
+.seat-badges {
+  display: flex;
+  gap: 4px;
+}
+
+.seat-video-container {
+  border-radius: 50%;
+  transition: box-shadow 0.2s ease;
+}
+
+.player-seat.selected-for-team .seat-video-container {
+  box-shadow: 0 0 0 4px var(--gold-bright);
+}
+
+.disconnected-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.revealed-role-badge {
+  position: absolute;
+  bottom: -28px;
+  background: var(--gold);
+  color: #111;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   z-index: 10;
 }
